@@ -6,7 +6,17 @@ struct VioletInfernoView: View {
     @State private var showWinPopup = false
     @State private var isMenu = false
     @State private var info = false
-    @State private var music = false
+    @State var music: Bool {
+        didSet {
+            UserDefaults.standard.set(music, forKey: "slot4")
+            soundManager.toggleMusic()
+        }
+    }
+
+    init() {
+        self.music = UserDefaults.standard.bool(forKey: "slot4")
+    }
+    @ObservedObject private var soundManager = SoundManager.shared
     
     var body: some View {
         ZStack {
@@ -87,18 +97,18 @@ struct VioletInfernoView: View {
                             }
                     }
                     
-                    Button(action: {
-                        music.toggle()
-                    }) {
-                        Circle()
-                            .fill(Color(red: 206/255, green: 89/255, blue: 241/255))
-                            .frame(width: 47, height: 47)
-                            .overlay {
-                                Image(systemName: music ? "speaker.wave.3.fill" : "speaker.slash.fill")
-                                    .foregroundStyle(.black)
-                                    .font(.system(size: 24))
-                            }
-                    }
+//                    Button(action: {
+//                        music.toggle()
+//                    }) {
+//                        Circle()
+//                            .fill(Color(red: 206/255, green: 89/255, blue: 241/255))
+//                            .frame(width: 47, height: 47)
+//                            .overlay {
+//                                Image(systemName: !music ? "speaker.wave.3.fill" : "speaker.slash.fill")
+//                                    .foregroundStyle(.black)
+//                                    .font(.system(size: 24))
+//                            }
+//                    }
                     
                     Button(action: {
                         isMenu = true
@@ -284,6 +294,7 @@ struct VioletInfernoView: View {
                     Button(action: {
                         if !infernoViewModel.isSpinning {
                             infernoViewModel.spin()
+                            soundManager.playSlot4()
                         }
                     }) {
                         Image(.infernoSpin)

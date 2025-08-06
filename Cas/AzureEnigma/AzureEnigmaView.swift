@@ -5,7 +5,18 @@ struct AzureEnigmaView: View {
     @State private var showWinPopup = false
     @State private var isMenu = false
     @State private var info = false
-    @State private var music = false
+    @State var music: Bool {
+        didSet {
+            UserDefaults.standard.set(music, forKey: "slot3")
+            soundManager.toggleMusic()
+        }
+    }
+
+    init() {
+        self.music = UserDefaults.standard.bool(forKey: "slot3")
+    }
+    
+    @ObservedObject private var soundManager = SoundManager.shared
     
     var body: some View {
         ZStack {
@@ -86,18 +97,18 @@ struct AzureEnigmaView: View {
                             }
                     }
                     
-                    Button(action: {
-                        music.toggle()
-                    }) {
-                        Circle()
-                            .fill(Color(red: 4/255, green: 152/255, blue: 219/255))
-                            .frame(width: 47, height: 47)
-                            .overlay {
-                                Image(systemName: music ? "speaker.wave.3.fill" : "speaker.slash.fill")
-                                    .foregroundStyle(.black)
-                                    .font(.system(size: 24))
-                            }
-                    }
+//                    Button(action: {
+//                        music.toggle()
+//                    }) {
+//                        Circle()
+//                            .fill(Color(red: 4/255, green: 152/255, blue: 219/255))
+//                            .frame(width: 47, height: 47)
+//                            .overlay {
+//                                Image(systemName: !music ? "speaker.wave.3.fill" : "speaker.slash.fill")
+//                                    .foregroundStyle(.black)
+//                                    .font(.system(size: 24))
+//                            }
+//                    }
                     
                     Button(action: {
                         isMenu = true
@@ -283,6 +294,7 @@ struct AzureEnigmaView: View {
                     Button(action: {
                         if !enigmaViewModel.isSpinning {
                             enigmaViewModel.spin()
+                            soundManager.playSlot3()
                         }
                     }) {
                         Image(.enigmaSpin)

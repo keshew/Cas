@@ -5,7 +5,17 @@ struct CrimsonDreamsView: View {
     @State private var showWinPopup = false
     @State private var isMenu = false
     @State private var info = false
-    @State private var music = false
+    @ObservedObject private var soundManager = SoundManager.shared
+    @State var music: Bool {
+        didSet {
+            UserDefaults.standard.set(music, forKey: "slot2")
+            soundManager.toggleMusic()
+        }
+    }
+
+    init() {
+        self.music = UserDefaults.standard.bool(forKey: "slot2")
+    }
     var body: some View {
         ZStack {
             Image(.crimsonBack)
@@ -83,18 +93,18 @@ struct CrimsonDreamsView: View {
                             }
                     }
                     
-                    Button(action: {
-                        music.toggle()
-                    }) {
-                        Circle()
-                            .fill(Color(red: 255/255, green: 0/255, blue: 0/255))
-                            .frame(width: 47, height: 47)
-                            .overlay {
-                                Image(systemName: music ? "speaker.wave.3.fill" : "speaker.slash.fill")
-                                    .foregroundStyle(.black)
-                                    .font(.system(size: 24))
-                            }
-                    }
+//                    Button(action: {
+//                        music.toggle()
+//                    }) {
+//                        Circle()
+//                            .fill(Color(red: 255/255, green: 0/255, blue: 0/255))
+//                            .frame(width: 47, height: 47)
+//                            .overlay {
+//                                Image(systemName: !music ? "speaker.wave.3.fill" : "speaker.slash.fill")
+//                                    .foregroundStyle(.black)
+//                                    .font(.system(size: 24))
+//                            }
+//                    }
                     
                     Button(action: {
                         isMenu = true
@@ -279,6 +289,7 @@ struct CrimsonDreamsView: View {
                     Button(action: {
                         if !crimsonViewModel.isSpinning {
                             crimsonViewModel.spin()
+                            soundManager.playSlot2()
                         }
                     }) {
                         Image(.spinCrimson)

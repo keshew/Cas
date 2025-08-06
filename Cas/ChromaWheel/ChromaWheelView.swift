@@ -10,6 +10,7 @@ struct ChromaWheelView: View {
     @StateObject var chromaWheelModel =  ChromaWheelViewModel()
     @State private var wheelRotation: Double = 0
     @State private var showWinPopup = false
+    @ObservedObject private var soundManager = SoundManager.shared
     
     let numbers: [RouletteNumber] = [
         RouletteNumber(number: "3", color: Color(red: 174/255, green: 40/255, blue: 45/255)),
@@ -76,7 +77,16 @@ struct ChromaWheelView: View {
     
     @State private var isMenu = false
     @State private var info = false
-    @State private var music = false
+    @State var music: Bool {
+        didSet {
+            UserDefaults.standard.set(music, forKey: "wheel")
+            soundManager.toggleMusic()
+        }
+    }
+
+    init() {
+        self.music = UserDefaults.standard.bool(forKey: "wheel")
+    }
     
     func placeBet(on field: String, amount: Int) {
         guard !placedBets.values.contains(amount) else { return }
@@ -152,18 +162,18 @@ struct ChromaWheelView: View {
                             }
                     }
                     
-                    Button(action: {
-                        music.toggle()
-                    }) {
-                        Circle()
-                            .fill(Color(red: 241/255, green: 89/255, blue: 219/255))
-                            .frame(width: 47, height: 47)
-                            .overlay {
-                                Image(systemName: music ? "speaker.wave.3.fill" : "speaker.slash.fill")
-                                    .foregroundStyle(.black)
-                                    .font(.system(size: 24))
-                            }
-                    }
+//                    Button(action: {
+//                        music.toggle()
+//                    }) {
+//                        Circle()
+//                            .fill(Color(red: 241/255, green: 89/255, blue: 219/255))
+//                            .frame(width: 47, height: 47)
+//                            .overlay {
+//                                Image(systemName: music ? "speaker.wave.3.fill" : "speaker.slash.fill")
+//                                    .foregroundStyle(.black)
+//                                    .font(.system(size: 24))
+//                            }
+//                    }
                     
                     Button(action: {
                         isMenu = true
@@ -597,6 +607,7 @@ struct ChromaWheelView: View {
     
     func spin() {
         guard !isSpinning else { return }
+        soundManager.playWheelMusic()
         isSpinning = true
         stoppedSectorNumber = nil
         chromaWheelModel.win = 0

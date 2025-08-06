@@ -50,7 +50,7 @@ class EmeraldMirageViewModel: ObservableObject {
             }
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             timer.invalidate()
             self.isSpinning = false
             self.isStopSpininng = true

@@ -5,7 +5,19 @@ struct EmeraldMirageView: View {
     @State private var showWinPopup = false
     @State private var isMenu = false
     @State private var info = false
-    @State private var music = false
+    @ObservedObject private var soundManager = SoundManager.shared
+    
+    @State var music: Bool {
+        didSet {
+            UserDefaults.standard.set(music, forKey: "slot1")
+            soundManager.toggleMusic()
+        }
+    }
+
+    init() {
+        self.music = UserDefaults.standard.bool(forKey: "slot1")
+    }
+    
     var body: some View {
         ZStack {
             Image(.bgMirage)
@@ -85,18 +97,18 @@ struct EmeraldMirageView: View {
                             }
                     }
                     
-                    Button(action: {
-                        music.toggle()
-                    }) {
-                        Circle()
-                            .fill(Color(red: 90/255, green: 241/255, blue: 150/255))
-                            .frame(width: 47, height: 47)
-                            .overlay {
-                                Image(systemName: music ? "speaker.wave.3.fill" : "speaker.slash.fill")
-                                    .foregroundStyle(.black)
-                                    .font(.system(size: 24))
-                            }
-                    }
+//                    Button(action: {
+//                        music.toggle()
+//                    }) {
+//                        Circle()
+//                            .fill(Color(red: 90/255, green: 241/255, blue: 150/255))
+//                            .frame(width: 47, height: 47)
+//                            .overlay {
+//                                Image(systemName: !music ? "speaker.wave.3.fill" : "speaker.slash.fill")
+//                                    .foregroundStyle(.black)
+//                                    .font(.system(size: 24))
+//                            }
+//                    }
                     
                     Button(action: {
                         isMenu = true
@@ -282,6 +294,7 @@ struct EmeraldMirageView: View {
                     Button(action: {
                         if !emeraldMirageModel.isSpinning {
                             emeraldMirageModel.spin()
+                            soundManager.playSlot1()
                         }
                     }) {
                         Image(.spinMirage)

@@ -4,10 +4,19 @@ struct MainView: View {
     private let arrayOfGames = ["game1", "game2", "game3", "game4", "game5"]
     @State private var sliderProgress: CGFloat = 0
     @State private var scrollTargetIndex: Int = 0
-    @State private var music = false
+    @State var music: Bool {
+        didSet {
+            UserDefaults.standard.set(music, forKey: "music")
+            soundManager.toggleMusic()
+        }
+    }
     @State private var selectedScreenIndex: ScreenIndex? = nil
+    @ObservedObject private var soundManager = SoundManager.shared
 
-
+    init() {
+        self.music = UserDefaults.standard.bool(forKey: "music")
+    }
+    
     var body: some View {
         ZStack {
             Image(.back)
@@ -58,7 +67,7 @@ struct MainView: View {
                             .fill(Color(red: 241/255, green: 89/255, blue: 219/255))
                             .frame(width: 47, height: 47)
                             .overlay {
-                                Image(systemName: music ? "speaker.wave.3.fill" : "speaker.slash.fill")
+                                Image(systemName: !music ? "speaker.wave.3.fill" : "speaker.slash.fill")
                                     .foregroundStyle(.black)
                                     .font(.system(size: 24))
                             }
@@ -121,6 +130,7 @@ struct MainView: View {
                             }
                         }
                     }
+                    .scrollDisabled(true)
                     .frame(height: 210)
                     .onChange(of: scrollTargetIndex) { newIndex in
                         withAnimation {
@@ -168,6 +178,9 @@ struct MainView: View {
                 Spacer()
             }
         }
+        .onAppear {
+            soundManager.playBackgroundMusic()
+        }
         
         .fullScreenCover(item: $selectedScreenIndex) { screenIndex in
             switch screenIndex.id {
@@ -184,13 +197,6 @@ struct MainView: View {
 
 #Preview {
     MainView()
-}
-
-struct ScrollViewOffsetKey: PreferenceKey {
-    static var defaultValue: CGFloat = 0
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = nextValue()
-    }
 }
 
 struct ScreenIndex: Identifiable {
