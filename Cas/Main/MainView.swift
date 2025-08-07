@@ -67,7 +67,7 @@ struct MainView: View {
                             .fill(Color(red: 241/255, green: 89/255, blue: 219/255))
                             .frame(width: 47, height: 47)
                             .overlay {
-                                Image(systemName: !music ? "speaker.wave.3.fill" : "speaker.slash.fill")
+                                Image(systemName: music ? "speaker.wave.3.fill" : "speaker.slash.fill")
                                     .foregroundStyle(.black)
                                     .font(.system(size: 24))
                             }
