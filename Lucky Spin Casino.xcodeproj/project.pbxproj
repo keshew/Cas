@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		861942022E40C853007CC64F /* Cas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		861942022E40C853007CC64F /* Lucky Spin Casino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lucky Spin Casino.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		8619421F2E40C937007CC64F /* Exceptions for "Cas" folder in "Cas" target */ = {
+		8619421F2E40C937007CC64F /* Exceptions for "Cas" folder in "Lucky Spin Casino" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 861942012E40C853007CC64F /* Cas */;
+			target = 861942012E40C853007CC64F /* Lucky Spin Casino */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -24,7 +24,7 @@
 		861942042E40C853007CC64F /* Cas */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				8619421F2E40C937007CC64F /* Exceptions for "Cas" folder in "Cas" target */,
+				8619421F2E40C937007CC64F /* Exceptions for "Cas" folder in "Lucky Spin Casino" target */,
 			);
 			path = Cas;
 			sourceTree = "<group>";
@@ -53,7 +53,7 @@
 		861942032E40C853007CC64F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				861942022E40C853007CC64F /* Cas.app */,
+				861942022E40C853007CC64F /* Lucky Spin Casino.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,9 +61,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		861942012E40C853007CC64F /* Cas */ = {
+		861942012E40C853007CC64F /* Lucky Spin Casino */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 861942102E40C854007CC64F /* Build configuration list for PBXNativeTarget "Cas" */;
+			buildConfigurationList = 861942102E40C854007CC64F /* Build configuration list for PBXNativeTarget "Lucky Spin Casino" */;
 			buildPhases = (
 				861941FE2E40C853007CC64F /* Sources */,
 				861941FF2E40C853007CC64F /* Frameworks */,
@@ -76,11 +76,11 @@
 			fileSystemSynchronizedGroups = (
 				861942042E40C853007CC64F /* Cas */,
 			);
-			name = Cas;
+			name = "Lucky Spin Casino";
 			packageProductDependencies = (
 			);
 			productName = Cas;
-			productReference = 861942022E40C853007CC64F /* Cas.app */;
+			productReference = 861942022E40C853007CC64F /* Lucky Spin Casino.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +98,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 861941FD2E40C853007CC64F /* Build configuration list for PBXProject "Cas" */;
+			buildConfigurationList = 861941FD2E40C853007CC64F /* Build configuration list for PBXProject "Lucky Spin Casino" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				861942012E40C853007CC64F /* Cas */,
+				861942012E40C853007CC64F /* Lucky Spin Casino */,
 			);
 		};
 /* End PBXProject section */
@@ -330,7 +330,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		861941FD2E40C853007CC64F /* Build configuration list for PBXProject "Cas" */ = {
+		861941FD2E40C853007CC64F /* Build configuration list for PBXProject "Lucky Spin Casino" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8619420E2E40C854007CC64F /* Debug */,
@@ -339,7 +339,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		861942102E40C854007CC64F /* Build configuration list for PBXNativeTarget "Cas" */ = {
+		861942102E40C854007CC64F /* Build configuration list for PBXNativeTarget "Lucky Spin Casino" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				861942112E40C854007CC64F /* Debug */,

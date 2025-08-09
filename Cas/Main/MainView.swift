@@ -17,6 +17,8 @@ struct MainView: View {
         self.music = UserDefaults.standard.bool(forKey: "music")
     }
     
+    @Environment(\.openURL) var openURL
+    
     var body: some View {
         ZStack {
             Image(.back)
@@ -48,17 +50,19 @@ struct MainView: View {
             VStack {
                 HStack {
                     Button(action: {
-                        
-                    }) {
-                        Circle()
-                            .fill(Color(red: 241/255, green: 89/255, blue: 219/255))
-                            .frame(width: 47, height: 47)
-                            .overlay {
-                                Text("Privacy\nPolicy")
-                                    .One(size: 10, color: .black)
-                                    .multilineTextAlignment(.center)
-                            }
-                    }
+                             if let url = URL(string: "https://www.freeprivacypolicy.com/live/40371050-8669-4fc0-887f-b5a101e431fe") {
+                                 openURL(url)
+                             }
+                         }) {
+                             Circle()
+                                 .fill(Color(red: 241/255, green: 89/255, blue: 219/255))
+                                 .frame(width: 47, height: 47)
+                                 .overlay {
+                                     Text("Privacy\nPolicy")
+                                         .One(size: 10, color: .black)
+                                         .multilineTextAlignment(.center)
+                                 }
+                         }
                     
                     Button(action: {
                         music.toggle()

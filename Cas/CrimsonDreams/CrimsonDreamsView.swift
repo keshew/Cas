@@ -27,21 +27,27 @@ struct CrimsonDreamsView: View {
             
             Image(.rectangleCrimson)
                 .resizable()
-                .frame(width: 469, height: 330)
-                .position(x: UIScreen.main.bounds.width / 2.35, y: UIScreen.main.bounds.height / 2)
+                .frame(width: UIScreen.main.bounds.width > 1350 ? 660 : UIScreen.main.bounds.width > 1200 ? 590 : UIScreen.main.bounds.width > 1150 ? 580 : UIScreen.main.bounds.width > 430 ? 499 : 569,
+                       height: UIScreen.main.bounds.width > 1350 ? 900 : UIScreen.main.bounds.width > 1200 ? 690 : UIScreen.main.bounds.width > 1150 ? 680 : UIScreen.main.bounds.width > 430 ? 330 : 330)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.3,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2.8 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 3 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 3 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.height / 2 : UIScreen.main.bounds.height / 2)
             
             ZStack {
                 if crimsonViewModel.isStopSpininng {
                     Image(.crimsonGirl2)
                         .resizable()
-                        .frame(width: 193, height: 289)
-                        .position(x: UIScreen.main.bounds.width / 18, y: UIScreen.main.bounds.height / 1.6)
+                        .frame(width: UIScreen.main.bounds.width > 1350 ? 400 : UIScreen.main.bounds.width > 1200 ? 300 : UIScreen.main.bounds.width > 1150 ? 300 : UIScreen.main.bounds.width > 430 ? 183 : 183,
+                               height: UIScreen.main.bounds.width > 1350 ? 550 : UIScreen.main.bounds.width > 1200 ? 450 : UIScreen.main.bounds.width > 1150 ? 400 : UIScreen.main.bounds.width > 430 ? 289 : 289)
+                        .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 9 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 10 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 10 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 18 : UIScreen.main.bounds.width / 18,
+                                  y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 2.2 : UIScreen.main.bounds.width > 980 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 3.5)
                         .transition(.opacity.combined(with: .slide))
                 } else {
                     Image(.crimsonGirl)
                         .resizable()
-                        .frame(width: 183, height: 289)
-                        .position(x: UIScreen.main.bounds.width / 18, y: UIScreen.main.bounds.height / 1.6)
+                        .frame(width: UIScreen.main.bounds.width > 1350 ? 400 : UIScreen.main.bounds.width > 1200 ? 300 : UIScreen.main.bounds.width > 1150 ? 300 : UIScreen.main.bounds.width > 430 ? 183 : 183,
+                               height: UIScreen.main.bounds.width > 1350 ? 550 : UIScreen.main.bounds.width > 1200 ? 450 : UIScreen.main.bounds.width > 1150 ? 400 : UIScreen.main.bounds.width > 430 ? 289 : 289)
+                        .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 9 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 10 : UIScreen.main.bounds.width > 980 ? UIScreen.main.bounds.width / 10 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 18 : UIScreen.main.bounds.width / 18,
+                                  y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 2.2 : UIScreen.main.bounds.width > 980 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 3.5)
                         .transition(.opacity.combined(with: .slide))
                 }
             }
@@ -49,24 +55,28 @@ struct CrimsonDreamsView: View {
             
             Image(.crimsonTop)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: 80)
-                .position(x: UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35, y: UIScreen.main.bounds.height > 430 ? UIScreen.main.bounds.height / 12 : UIScreen.main.bounds.height / 10)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 25 : UIScreen.main.bounds.width / 25)
             
             Image(.top2)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: 80)
-                .position(x: UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35, y: UIScreen.main.bounds.height > 430 ? UIScreen.main.bounds.height / 12 : UIScreen.main.bounds.height / 10)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 25 : UIScreen.main.bounds.width / 25)
             
             Image(.crimsonTop)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: 80)
-                .position(x: UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35, y: UIScreen.main.bounds.height > 430 ? UIScreen.main.bounds.height / 32 : UIScreen.main.bounds.height / 25)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 55 : UIScreen.main.bounds.width / 25)
                 .rotationEffect(.degrees(180))
             
             Image(.top2)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: 80)
-                .position(x: UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35, y: UIScreen.main.bounds.height > 430 ? UIScreen.main.bounds.height / 32 : UIScreen.main.bounds.height / 25)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 55 : UIScreen.main.bounds.width / 25)
                 .rotationEffect(.degrees(180))
             
             Button(action: {
@@ -76,7 +86,8 @@ struct CrimsonDreamsView: View {
                     .resizable()
                     .frame(width: 113, height: 50)
             }
-            .position(x: UIScreen.main.bounds.width / 1.25, y: UIScreen.main.bounds.height / 1.4)
+            .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 1.13 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 1.13 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 1.13 : UIScreen.main.bounds.width / 1.25,
+                      y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 1.7 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 1.9 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 1.9 : UIScreen.main.bounds.height / 1.4)
             
             VStack {
                 HStack {
@@ -214,6 +225,7 @@ struct CrimsonDreamsView: View {
                     }
                 }
                 .padding(.top)
+                .padding(.horizontal, UIScreen.main.bounds.width > 1150 ? 20 : 0)
                 
                 Spacer()
                 
@@ -229,7 +241,8 @@ struct CrimsonDreamsView: View {
                                             .frame(width: 45, height: 45)
                                             .opacity(crimsonViewModel.isSpinning ? 0.5 : 1.0)
                                     }
-                                    .frame(width: 60, height: 60)
+                                    .frame(width: UIScreen.main.bounds.width > 1350 ? 90 : UIScreen.main.bounds.width > 1200 ? 80 : UIScreen.main.bounds.width > 1150 ? 70 : UIScreen.main.bounds.width > 430 ? 60 : 60,
+                                           height: UIScreen.main.bounds.width > 1350 ? 100 : UIScreen.main.bounds.width > 1200 ? 90 : UIScreen.main.bounds.width > 1150 ? 80: UIScreen.main.bounds.width > 430 ? 60 : 60)
                                     .transition(.move(edge: .bottom))
                                     .shadow(color: crimsonViewModel.winningPositions.contains(where: { $0.row == row && $0.col == col }) ? Color(red: 255/255, green: 0/255, blue: 0/255) : .clear, radius: crimsonViewModel.isSpinning ? 0 : 10)
                             }
@@ -296,7 +309,7 @@ struct CrimsonDreamsView: View {
                             .resizable()
                             .frame(width: 155, height: 65)
                     }
-                    .offset(y: -25)
+                    .offset(y: UIScreen.main.bounds.width > 1350 ? -60 : UIScreen.main.bounds.width > 1150 ? -50 : -35)
                     .disabled(crimsonViewModel.isSpinning ? true : crimsonViewModel.bet > crimsonViewModel.balance ? true : false)
                     .opacity(crimsonViewModel.isSpinning ? 0.5 : crimsonViewModel.bet > crimsonViewModel.balance ? 0.5 : 1)
                     
@@ -343,6 +356,8 @@ struct CrimsonDreamsView: View {
                     .disabled(crimsonViewModel.bet == crimsonViewModel.balance)
                 }
                 .offset(y: 20)
+                .padding(.horizontal, UIScreen.main.bounds.width > 1150 ? 20 : 0)
+                .padding(.bottom, UIScreen.main.bounds.width > 1150 ? 20 : 0)
             }
             
             if crimsonViewModel.win > 0 && showWinPopup {
