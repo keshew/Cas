@@ -27,24 +27,28 @@ struct MainView: View {
             
             Image(.top)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: 100)
-                .position(x: UIScreen.main.bounds.width / 2.35, y: UIScreen.main.bounds.height / 10)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.33,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 24 : UIScreen.main.bounds.width / 22)
             
             Image(.top2)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: 100)
-                .position(x: UIScreen.main.bounds.width / 2.35, y: UIScreen.main.bounds.height / 10)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.33,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 24 : UIScreen.main.bounds.width / 22)
             
             Image(.top)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: 80)
-                .position(x: UIScreen.main.bounds.width / 2.35, y: UIScreen.main.bounds.height / 25)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.33,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 55 : UIScreen.main.bounds.width / 55)
                 .rotationEffect(.degrees(180))
             
             Image(.top2)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: 80)
-                .position(x: UIScreen.main.bounds.width / 2.35, y: UIScreen.main.bounds.height / 25)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.33,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 55 : UIScreen.main.bounds.width / 55)
                 .rotationEffect(.degrees(180))
             
             VStack {
@@ -116,6 +120,7 @@ struct MainView: View {
                                 }
                         }
                 }
+                .padding(.horizontal, UIScreen.main.bounds.width > 1150 ? 20 : 0)
                 
                 Spacer()
                 
@@ -128,11 +133,14 @@ struct MainView: View {
                                 }) {
                                     Image(arrayOfGames[index])
                                         .resizable()
-                                        .frame(width: 210, height: 210)
+                                        .frame(width: UIScreen.main.bounds.width > 1350 ? 450 : UIScreen.main.bounds.width > 1200 ? 370 : UIScreen.main.bounds.width > 1150 ? 310 : UIScreen.main.bounds.width > 430 ? 210 : 210,
+                                               height: UIScreen.main.bounds.width > 1350 ? 450 : UIScreen.main.bounds.width > 1200 ? 370 : UIScreen.main.bounds.width > 1150 ? 310 : UIScreen.main.bounds.width > 430 ? 210 : 210)
                                         .id(index)
                                 }
                             }
+                            
                         }
+                        .padding(.horizontal, UIScreen.main.bounds.width > 1150 ? 20 : 0)
                     }
                     .scrollDisabled(true)
                     .frame(height: 210)
@@ -174,6 +182,7 @@ struct MainView: View {
                                 .padding(.horizontal, 5)
                         }
                         .padding(.horizontal)
+                        .padding(.top, UIScreen.main.bounds.width > 1350 ? 290 : UIScreen.main.bounds.width > 1210 ? 190 : UIScreen.main.bounds.width > 1150 ? 190 : UIScreen.main.bounds.width > 430 ? 0 : 0)
                     }
                     .frame(height: 30)
                     .offset(y: 30)

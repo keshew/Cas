@@ -31,17 +31,17 @@ struct AzureEnigmaView: View {
                 .resizable()
                 .frame(width: UIScreen.main.bounds.width > 1350 ? 790 : UIScreen.main.bounds.width > 1200 ? 690 : UIScreen.main.bounds.width > 1150 ? 630 : UIScreen.main.bounds.width > 430 ? 569 : 569,
                        height: UIScreen.main.bounds.width > 1350 ? 900 : UIScreen.main.bounds.width > 1200 ? 690 : UIScreen.main.bounds.width > 1150 ? 680 : UIScreen.main.bounds.width > 430 ? 330 : 330)
-                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.35 : UIScreen.main.bounds.width / 2.35,
-                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2.8 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 3 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 3 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.height / 2 : UIScreen.main.bounds.height / 2)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.35 : UIScreen.main.bounds.width / 2.35,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2.8 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 3 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 3 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.height / 2 : UIScreen.main.bounds.height / 2)
             
             ZStack {
                 if enigmaViewModel.isStopSpininng {
                     Image(.enigmaBoy2)
                         .resizable()
-                        .frame(width: UIScreen.main.bounds.width > 1350 ? 400 : UIScreen.main.bounds.width > 1200 ? 300 : UIScreen.main.bounds.width > 1150 ? 300 : UIScreen.main.bounds.width > 430 ? 183 : 183,
-                               height: UIScreen.main.bounds.width > 1350 ? 550 : UIScreen.main.bounds.width > 1200 ? 450 : UIScreen.main.bounds.width > 1150 ? 400 : UIScreen.main.bounds.width > 430 ? 289 : 289)
-                        .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 9 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 10 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 10 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 18 : UIScreen.main.bounds.width / 18,
-                                  y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 2.2 : UIScreen.main.bounds.width > 980 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 3.5)
+                        .frame(width: UIScreen.main.bounds.width > 1350 ? 400 : UIScreen.main.bounds.width > 1200 ? 300 : UIScreen.main.bounds.width > 1150 ? 300 : UIScreen.main.bounds.width > 880 ? 183 : 183,
+                               height: UIScreen.main.bounds.width > 1350 ? 550 : UIScreen.main.bounds.width > 1200 ? 450 : UIScreen.main.bounds.width > 1150 ? 400 : UIScreen.main.bounds.width > 880 ? 289 : 289)
+                        .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 9 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 10 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 10 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 18 : UIScreen.main.bounds.width / 18,
+                                  y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 2.2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 3.5)
                         .transition(.opacity.combined(with: .slide))
                 } else {
                     Image(.enigmaBoy)
@@ -49,7 +49,7 @@ struct AzureEnigmaView: View {
                         .frame(width: UIScreen.main.bounds.width > 1350 ? 400 : UIScreen.main.bounds.width > 1200 ? 300 : UIScreen.main.bounds.width > 1150 ? 300 : UIScreen.main.bounds.width > 430 ? 183 : 183,
                                height: UIScreen.main.bounds.width > 1350 ? 550 : UIScreen.main.bounds.width > 1200 ? 450 : UIScreen.main.bounds.width > 1150 ? 400 : UIScreen.main.bounds.width > 430 ? 289 : 289)
                         .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 9 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 10 : UIScreen.main.bounds.width > 980 ? UIScreen.main.bounds.width / 10 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 18 : UIScreen.main.bounds.width / 18,
-                                  y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 2.2 : UIScreen.main.bounds.width > 980 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 3.5)
+                                  y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1200 ? UIScreen.main.bounds.width / 2.2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 3.5)
                         .transition(.opacity.combined(with: .slide))
                 }
             }
@@ -58,26 +58,26 @@ struct AzureEnigmaView: View {
             Image(.enigmaTop)
                 .resizable()
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
-                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35,
-                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 25 : UIScreen.main.bounds.width / 25)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.33,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 25 : UIScreen.main.bounds.width / 25)
             
             Image(.top2)
                 .resizable()
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
-                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35,
-                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 25 : UIScreen.main.bounds.width / 25)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.33,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 25 : UIScreen.main.bounds.width / 25)
             
             Image(.enigmaTop)
                 .resizable()
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
-                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35,
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.33,
                           y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 55 : UIScreen.main.bounds.width / 25)
                 .rotationEffect(.degrees(180))
             
             Image(.top2)
                 .resizable()
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
-                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35,
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.33,
                           y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 55 : UIScreen.main.bounds.width / 25)
                 .rotationEffect(.degrees(180))
             
@@ -466,13 +466,15 @@ struct EnigmaInfoView: View {
             
             Image(.enigmaTop)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: 80)
-                .position(x: UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35, y: UIScreen.main.bounds.height > 430 ? UIScreen.main.bounds.height / 12 : UIScreen.main.bounds.height / 10)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.33,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 25 : UIScreen.main.bounds.width / 25)
             
             Image(.top2)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: 80)
-                .position(x: UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35, y: UIScreen.main.bounds.height > 430 ? UIScreen.main.bounds.height / 12 : UIScreen.main.bounds.height / 10)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.33,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 25 : UIScreen.main.bounds.width / 25)
             
             VStack {
                 HStack {
@@ -531,6 +533,7 @@ struct EnigmaInfoView: View {
                     }
                 }
                 .padding(.top, 5)
+                .padding(.horizontal, UIScreen.main.bounds.width > 1150 ? 20 : 0)
                 
                 Spacer()
                 
@@ -539,6 +542,10 @@ struct EnigmaInfoView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 737, height: 244)
                     .padding(.bottom, 25)
+                
+                if UIScreen.main.bounds.width > 880 {
+                    Spacer()
+                }
             }
         }
     }

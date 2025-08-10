@@ -139,13 +139,15 @@ struct ChromaWheelView: View {
             
             Image(.topWheel)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: 80)
-                .position(x: UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35, y: UIScreen.main.bounds.height > 430 ? UIScreen.main.bounds.height / 12 : UIScreen.main.bounds.height / 10)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.33,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 24 : UIScreen.main.bounds.width / 22)
             
             Image(.top2)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: 80)
-                .position(x: UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35, y: UIScreen.main.bounds.height > 430 ? UIScreen.main.bounds.height / 12 : UIScreen.main.bounds.height / 10)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.33,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 24 : UIScreen.main.bounds.width / 22)
             
             VStack {
                 HStack {
@@ -283,28 +285,31 @@ struct ChromaWheelView: View {
                     }
                 }
                 .padding(.top)
+                .padding(.horizontal, UIScreen.main.bounds.width > 1150 ? 20 : 0)
                 
                 Spacer()
                 
                 Rectangle()
                     .fill(Color(red: 87/255, green: 12/255, blue: 134/255).opacity(0.5))
-                    .frame(width: 717, height: 283)
+                    .frame(width: UIScreen.main.bounds.width > 1350 ? 917 : UIScreen.main.bounds.width > 1210 ? 717 : UIScreen.main.bounds.width > 1150 ? 797 : UIScreen.main.bounds.width > 430 ? 717 : 717,
+                           height: UIScreen.main.bounds.width > 1350 ? 483 : UIScreen.main.bounds.width > 1210 ? 283 : UIScreen.main.bounds.width > 1150 ? 383 : UIScreen.main.bounds.width > 430 ? 288 : 288)
                     .overlay {
                         RoundedRectangle(cornerRadius: 24)
                             .stroke(.white, lineWidth: 4)
                             .overlay {
                                 HStack(spacing: 60) {
-                                    VStack {
+                                    VStack(spacing: UIScreen.main.bounds.width > 1350 ? 30 : 10) {
                                         ZStack {
                                             Image(.wheel)
                                                 .resizable()
                                                 .rotationEffect(Angle(degrees: wheelRotation))
-                                                .frame(width: 220, height: 220)
+                                                .frame(width: UIScreen.main.bounds.width > 1350 ? 320 : UIScreen.main.bounds.width > 1210 ? 220 : UIScreen.main.bounds.width > 1150 ? 260 : UIScreen.main.bounds.width > 430 ? 220 : 220,
+                                                       height: UIScreen.main.bounds.width > 1350 ? 320 : UIScreen.main.bounds.width > 1210 ? 220 : UIScreen.main.bounds.width > 1150 ? 260 : UIScreen.main.bounds.width > 430 ? 220 : 220)
                                             
                                             Image(.ball)
                                                 .resizable()
                                                 .frame(width: 15, height: 18)
-                                                .offset(x: 0, y: -72)
+                                                .offset(x: 0, y: UIScreen.main.bounds.width > 1350 ? -102 : UIScreen.main.bounds.width > 1210 ? -72 : UIScreen.main.bounds.width > 1150 ? -85 : UIScreen.main.bounds.width > 430 ? -72 : -72)
                                         }
                                         
                                         
@@ -315,13 +320,14 @@ struct ChromaWheelView: View {
                                                     Text("SPIN")
                                                         .One(size: 22, color: Color(red: 252/255, green: 255/255, blue: 193/255))
                                                 }
-                                                .frame(width: 126, height: 40)
+                                                .frame(width: UIScreen.main.bounds.width > 1350 ? 166 : UIScreen.main.bounds.width > 1210 ? 126 : UIScreen.main.bounds.width > 1150 ? 126 : UIScreen.main.bounds.width > 430 ? 126 : 126,
+                                                       height: UIScreen.main.bounds.width > 1350 ? 60 : UIScreen.main.bounds.width > 1210 ? 40 : UIScreen.main.bounds.width > 1150 ? 40 : UIScreen.main.bounds.width > 430 ? 40 : 40)
                                         }
                                         .disabled(isSpinning ? true : placedBets.isEmpty ? true : false)
                                         .opacity(placedBets.isEmpty ? 0.5 : isSpinning ? 0.5 : 1)
                                     }
                                     
-                                    VStack {
+                                    VStack(spacing: UIScreen.main.bounds.width > 1350 ? 30 : 10) {
                                         VStack(spacing: 0) {
                                             HStack(spacing: 0) {
                                                 VStack(spacing: 0) {
@@ -373,7 +379,8 @@ struct ChromaWheelView: View {
                                                                                 RoundedRectangle(cornerRadius: 0)
                                                                                     .stroke(.white)
                                                                             }
-                                                                            .frame(width: 23, height: 30)
+                                                                            .frame(width: UIScreen.main.bounds.width > 1350 ? 34 : UIScreen.main.bounds.width > 1210 ? 23 : UIScreen.main.bounds.width > 1150 ? 30 : UIScreen.main.bounds.width > 430 ? 23 : 23,
+                                                                                   height: UIScreen.main.bounds.width > 1350 ? 50 : UIScreen.main.bounds.width > 1210 ? 30 : UIScreen.main.bounds.width > 1150 ? 40 : UIScreen.main.bounds.width > 430 ? 30 : 30)
                                                                         
                                                                         Text("\(num.number)")
                                                                             .One(size: 12)
@@ -438,7 +445,8 @@ struct ChromaWheelView: View {
                                             }) {
                                                 Image(.red)
                                                     .resizable()
-                                                    .frame(width: 55, height: 52)
+                                                    .frame(width: UIScreen.main.bounds.width > 1350 ? 65 : UIScreen.main.bounds.width > 1210 ? 55 : UIScreen.main.bounds.width > 1150 ? 55 : UIScreen.main.bounds.width > 430 ? 55 : 55,
+                                                           height: UIScreen.main.bounds.width > 1350 ? 62 : UIScreen.main.bounds.width > 1210 ? 52 : UIScreen.main.bounds.width > 1150 ? 52 : UIScreen.main.bounds.width > 430 ? 52 : 52)
                                             }
                                             
                                             Button(action: {
@@ -446,7 +454,8 @@ struct ChromaWheelView: View {
                                             }) {
                                                 Image(.yellow)
                                                     .resizable()
-                                                    .frame(width: 55, height: 52)
+                                                    .frame(width: UIScreen.main.bounds.width > 1350 ? 65 : UIScreen.main.bounds.width > 1210 ? 55 : UIScreen.main.bounds.width > 1150 ? 55 : UIScreen.main.bounds.width > 430 ? 55 : 55,
+                                                           height: UIScreen.main.bounds.width > 1350 ? 62 : UIScreen.main.bounds.width > 1210 ? 52 : UIScreen.main.bounds.width > 1150 ? 52 : UIScreen.main.bounds.width > 430 ? 52 : 52)
                                             }
                                             
                                             Button(action: {
@@ -454,7 +463,8 @@ struct ChromaWheelView: View {
                                             }) {
                                                 Image(.green)
                                                     .resizable()
-                                                    .frame(width: 55, height: 52)
+                                                    .frame(width: UIScreen.main.bounds.width > 1350 ? 65 : UIScreen.main.bounds.width > 1210 ? 55 : UIScreen.main.bounds.width > 1150 ? 55 : UIScreen.main.bounds.width > 430 ? 55 : 55,
+                                                           height: UIScreen.main.bounds.width > 1350 ? 62 : UIScreen.main.bounds.width > 1210 ? 52 : UIScreen.main.bounds.width > 1150 ? 52 : UIScreen.main.bounds.width > 430 ? 52 : 52)
                                             }
                                             
                                             Button(action: {
@@ -462,7 +472,8 @@ struct ChromaWheelView: View {
                                             }) {
                                                 Image(.blue)
                                                     .resizable()
-                                                    .frame(width: 55, height: 52)
+                                                    .frame(width: UIScreen.main.bounds.width > 1350 ? 65 : UIScreen.main.bounds.width > 1210 ? 55 : UIScreen.main.bounds.width > 1150 ? 55 : UIScreen.main.bounds.width > 430 ? 55 : 55,
+                                                           height: UIScreen.main.bounds.width > 1350 ? 62 : UIScreen.main.bounds.width > 1210 ? 52 : UIScreen.main.bounds.width > 1150 ? 52 : UIScreen.main.bounds.width > 430 ? 52 : 52)
                                             }
                                         }
                                         
@@ -476,7 +487,8 @@ struct ChromaWheelView: View {
                                                         Text("UNDO")
                                                             .One(size: 18, color: Color(red: 252/255, green: 255/255, blue: 193/255))
                                                     }
-                                                    .frame(width: 106, height: 35)
+                                                    .frame(width: UIScreen.main.bounds.width > 1350 ? 126 : UIScreen.main.bounds.width > 1210 ? 106 : UIScreen.main.bounds.width > 1150 ? 106 : UIScreen.main.bounds.width > 430 ? 106 : 106,
+                                                           height: UIScreen.main.bounds.width > 1350 ? 45 : UIScreen.main.bounds.width > 1210 ? 35 : UIScreen.main.bounds.width > 1150 ? 35 : UIScreen.main.bounds.width > 430 ? 35 : 35)
                                             }
                                             
                                             Button(action: {
@@ -488,7 +500,8 @@ struct ChromaWheelView: View {
                                                         Text("REDO")
                                                             .One(size: 18, color: Color(red: 252/255, green: 255/255, blue: 193/255))
                                                     }
-                                                    .frame(width: 106, height: 35)
+                                                    .frame(width: UIScreen.main.bounds.width > 1350 ? 126 : UIScreen.main.bounds.width > 1210 ? 106 : UIScreen.main.bounds.width > 1150 ? 106 : UIScreen.main.bounds.width > 430 ? 106 : 106,
+                                                           height: UIScreen.main.bounds.width > 1350 ? 45 : UIScreen.main.bounds.width > 1210 ? 35 : UIScreen.main.bounds.width > 1150 ? 35 : UIScreen.main.bounds.width > 430 ? 35 : 35)
                                             }
                                             
                                             Button(action: {
@@ -500,7 +513,8 @@ struct ChromaWheelView: View {
                                                         Text("CLEAR")
                                                             .One(size: 18, color: Color(red: 252/255, green: 255/255, blue: 193/255))
                                                     }
-                                                    .frame(width: 106, height: 35)
+                                                    .frame(width: UIScreen.main.bounds.width > 1350 ? 126 : UIScreen.main.bounds.width > 1210 ? 106 : UIScreen.main.bounds.width > 1150 ? 106 : UIScreen.main.bounds.width > 430 ? 106 : 106,
+                                                           height: UIScreen.main.bounds.width > 1350 ? 45 : UIScreen.main.bounds.width > 1210 ? 35 : UIScreen.main.bounds.width > 1150 ? 35 : UIScreen.main.bounds.width > 430 ? 35 : 35)
                                             }
                                         }
                                     }
@@ -509,6 +523,11 @@ struct ChromaWheelView: View {
                             }
                     }
                     .cornerRadius(24)
+//                    .padding(.top, 10)
+                
+                if UIScreen.main.bounds.width > 880 {
+                    Spacer()
+                }
             }
             
             if chromaWheelModel.win > 0 && showWinPopup {
@@ -640,7 +659,7 @@ struct ChromaWheelView: View {
 }
 
 #Preview {
-    ChromaWheelView()
+    WheelInfoView()
 }
 
 struct WheelInfoView: View {
@@ -654,15 +673,17 @@ struct WheelInfoView: View {
             Color(red: 125/255, green: 8/255, blue: 167/255).opacity(0.4)
                 .ignoresSafeArea()
             
-            Image(.crimsonTop)
+            Image(.topWheel)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: 80)
-                .position(x: UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35, y: UIScreen.main.bounds.height > 430 ? UIScreen.main.bounds.height / 12 : UIScreen.main.bounds.height / 10)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.33,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 25 : UIScreen.main.bounds.width / 25)
             
             Image(.top2)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: 80)
-                .position(x: UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.35, y: UIScreen.main.bounds.height > 430 ? UIScreen.main.bounds.height / 12 : UIScreen.main.bounds.height / 10)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width > 1150 ? 150 : 80)
+                .position(x: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 880 ? UIScreen.main.bounds.width / 2.3 : UIScreen.main.bounds.width / 2.33,
+                          y: UIScreen.main.bounds.width > 1350 ? UIScreen.main.bounds.width / 48 : UIScreen.main.bounds.width > 1210 ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width > 1150 ? UIScreen.main.bounds.width / 72 : UIScreen.main.bounds.width > 430 ? UIScreen.main.bounds.width / 25 : UIScreen.main.bounds.width / 25)
             
             VStack {
                 HStack {
@@ -721,6 +742,7 @@ struct WheelInfoView: View {
                     }
                 }
                 .padding(.top, 5)
+                .padding(.horizontal, UIScreen.main.bounds.width > 1150 ? 20 : 0)
                 
                 Spacer()
                 
@@ -729,6 +751,10 @@ struct WheelInfoView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 737, height: 244)
                     .padding(.bottom, 25)
+                
+                if UIScreen.main.bounds.width > 880 {
+                    Spacer()
+                }
             }
         }
     }
